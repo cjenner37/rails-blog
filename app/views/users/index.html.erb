@@ -1,2 +1,12 @@
-<h1>Users#index</h1>
+<h1 class="display-1">If this looks nice, you're using bootstrap.</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<% @users.each do |u| %>
+	<h4 class="display-4"><%= link_to u.full_name, u %></h4>
+	<% u.posts.each do |p| %>
+		<ul>
+			<li><%= link_to p.title, p %></li>
+			<p><%= p.comments.count %> comments</p>
+		</ul>
+	<% end %>
+<% end %>
