@@ -1,12 +1,17 @@
 class PostsController < ApplicationController
+
+  before_action :current_user
+
   def index
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-
+    @post = current_user.posts.create(post_params)
+    # redirect_to user_path(@user.id)
   end
 
   def edit

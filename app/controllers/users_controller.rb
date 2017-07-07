@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :prepare_user
+  before_action :prepare_user, :current_user
 
   def index
     @users = User.all
@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post = Post.new
   end
 
   def update
@@ -39,12 +40,12 @@ class UsersController < ApplicationController
 
   private
 
-    def prepare_user
-      @new_user = User.new
-      @current_user = current_user
-    end
+  def prepare_user
+    @new_user = User.new
+    @current_user = current_user
+  end
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
+  end
 end

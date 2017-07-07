@@ -24,6 +24,7 @@ $(document).ready(function () {
 		$('#log-in-modal').modal('show');
 	})
 	$('#new-post-button').click(function () {
+		console.log("clicked new post");
 		$('#new-post-modal').modal('show');
 	})
 	$('#new-comment-button').click(function () {

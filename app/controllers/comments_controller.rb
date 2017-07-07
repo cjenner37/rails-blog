@@ -3,13 +3,14 @@ class CommentsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
-    @user = current_user
-    @user.comments.create(comment_params)
+    @comment = current_user.comments.create(comment_params)
 
-    redirect_to 
+    redirect_to post_path(:post_id)
+
   end
 
   def edit
