@@ -15,3 +15,12 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function () {
+	$('#sign-up-button').click(function () {
+		$('#sign-up-modal').modal('show');
+	})
+	$('#log-in-button').click(function () {
+		$('#log-in-modal').modal('show');
+	})
+})
