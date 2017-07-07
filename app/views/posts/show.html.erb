@@ -1,12 +1,43 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<!-- New Comment Modal -->
+<div class="modal fade" id="new-comment-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Write Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: @comment, local: true do |f| %>
+					  <div class="form-group">
+					    <%= f.label :content %>
+					    <%= f.text_field :content %>
+					    <%= f.hidden_field :post_id, :value=> @post.id %>
+					  </div>
+					  <%= f.submit %>
+			<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-	<%= @post.title %>
-</p>
+
+<div class="page-title">
+	<% @user_id = @post.user_id %>
+	<h2 class="display-2" ><%= @post.title %></h2>
+	<h4 class="display-4">- <%= link_to User.find(@user_id).full_name, user_path(@user_id) %></h4>
+</div>
+
+
 <p>
 	<%= @post.content %>
 </p>
+<button id="new-comment-button" type="submit" class="btn btn-primary">Write a Comment</button>
 <p>
 	<% @post.comments.each do |comment| %>
 		<ul>

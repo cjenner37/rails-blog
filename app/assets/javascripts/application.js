@@ -23,13 +23,18 @@ $(document).ready(function () {
 	$('#log-in-button').click(function () {
 		$('#log-in-modal').modal('show');
 	})
-
+	$('#new-post-button').click(function () {
+		$('#new-post-modal').modal('show');
+	})
+	$('#new-comment-button').click(function () {
+		$('#new-comment-modal').modal('show');
+	})
 	$('#user-searchbar').keyup(function () {
 		let searchTerm = $(this).val();
 		if (searchTerm != "") {
 			searchFor(searchTerm);
 		} else {
-			$('#search-results').empty()
+			$('#search-results').empty();
 		}
 	})
 })

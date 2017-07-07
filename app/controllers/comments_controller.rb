@@ -6,6 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @user.comments.create(comment_params)
+
+    redirect_to 
   end
 
   def edit
@@ -18,5 +22,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:content, :post_id)
+  end
+
+  def prepare_user
+    @current_user = current_user
   end
 end

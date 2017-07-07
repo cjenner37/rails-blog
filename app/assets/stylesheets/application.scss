@@ -41,3 +41,23 @@
  	color: aliceblue !important;
  	margin-right: 20px;
  }
+
+ .body-container {
+ 	margin: auto;
+ 	max-width: 1000px;
+ 	border: 1px solid green;
+ }
+
+.page-title {
+    display: flex;
+    justify-content: center;
+}
+
+.col-9 {
+	border-right: 1px solid lightblue;
+}
+
+.post-heading-container {
+	display: flex;
+	
+}

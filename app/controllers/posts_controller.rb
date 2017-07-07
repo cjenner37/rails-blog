@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def create
+
   end
 
   def edit
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def update
@@ -20,4 +22,14 @@ class PostsController < ApplicationController
 
   def destroy
   end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
+
+  def prepare_user
+    @current_user = current_user
+  end
+
 end
