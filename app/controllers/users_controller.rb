@@ -32,6 +32,11 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def search_users
+    @search_term = params[:name]
+    @results = User.where('first_name LIKE?', '%' + @search_term + '%')
+  end
+
   private
 
     def prepare_user

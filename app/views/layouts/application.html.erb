@@ -120,11 +120,18 @@
 		       </ul>	
 	    	 <% end %>
 
-		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-		    </form>
+		    <div class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" id="user-searchbar" type="text" placeholder="Search for user">
+		    </div>
 		  </div>
 		</nav>  		
+		<ul id="search-results" class="list-group">
+			<% if @results %>
+			<% @results.first(6).each do |user| %>
+				<a href="/user/<%= i.id %>" + i.id + "" class="list-group-item list-group-item-action"><%= user.first_name %></a>
+			<% end %>
+			<% end %>
+		</ul>
     <%= yield %>
     <%= link_to "View all users", users_path %>
   </body>

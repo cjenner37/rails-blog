@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  post '/search_users', to: 'users#search_users'
+
   root 'users#index'
 
   resources :users

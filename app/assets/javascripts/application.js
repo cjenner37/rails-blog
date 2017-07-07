@@ -23,4 +23,19 @@ $(document).ready(function () {
 	$('#log-in-button').click(function () {
 		$('#log-in-modal').modal('show');
 	})
+
+	$('#user-searchbar').keyup(function () {
+		let searchTerm = $(this).val();
+		if (searchTerm != "") {
+			searchFor(searchTerm);
+		} else {
+			$('#search-results').empty()
+		}
+	})
 })
+
+function searchFor(searchTerm) {
+	$.post('/search_users', {name: searchTerm}, function (results) {
+		$('#search-results').html(results);
+	})
+}
