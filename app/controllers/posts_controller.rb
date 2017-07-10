@@ -10,8 +10,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    prepare_user
     @post = current_user.posts.create(post_params)
-    # redirect_to user_path(@user.id)
+    redirect_to user_path(current_user.id)
   end
 
   def edit

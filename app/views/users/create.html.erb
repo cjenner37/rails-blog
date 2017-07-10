@@ -1,2 +1,5 @@
-<h1>Users#create</h1>
-<p>Find me in app/views/users/create.html.erb</p>
+<h2 class="display-2"><%= @post.title %></h2>
+<% @user_id = @post.user_id %>
+<h4 class="display-4">- <%= User.where(id: @user_id).full_name %></h4>
+
+<p><%= @post.content %></p>
