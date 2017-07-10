@@ -44,10 +44,8 @@
 	<div class="col-9">
 		<ul>
 			<% @user.posts.each do |post| %>
-				<li>
-					<h5 class="display-5" ><%= link_to post.title, post %></h5>
-					<p><%= post.content %></p>
-				</li>
+				<%= render 'display_post', p: post %>
+				Post Created: <%= time_ago_in_words(post.created_at) %> ago
 			<% end %>	
 		</ul>
 	</div>

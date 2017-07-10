@@ -3,9 +3,15 @@
 <% @users.each do |u| %>
 	<h4 class="display-4"><%= link_to u.full_name, u %></h4>
 	<% u.posts.each do |p| %>
-		<ul>
-			<li><%= link_to p.title, p %></li>
-			<p><%= p.comments.count %> comments</p>
-		</ul>
+		<%= render 'display_post', p: p %>
 	<% end %>
 <% end %>
+
+
+Age: <%= distance_of_time_in_words(Time.now - 22.years, Time.now) %>
+<br>
+Date: <%= select_date(Time.now + 10.days) %>
+<br>
+<%= hello %>
+<br>
+<%= heading %>
