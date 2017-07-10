@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :prepare_user, :current_user
+  before_action :prepare_user
 
   def index
     @users = User.all

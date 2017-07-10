@@ -1,9 +1,9 @@
       Prefix Verb   URI Pattern                  Controller#Action
+search_users GET    /search_users(.:format)      search#index
       signup GET    /signup(.:format)            users#new
        login GET    /login(.:format)             sessions#new
              POST   /login(.:format)             sessions#create
       logout DELETE /logout(.:format)            sessions#destroy
-search_users POST   /search_users(.:format)      users#search_users
         root GET    /                            users#index
        users GET    /users(.:format)             users#index
              POST   /users(.:format)             users#create

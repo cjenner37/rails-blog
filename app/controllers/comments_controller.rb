@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
 
-  before_action :current_user
-
   def index
   end
 
@@ -11,17 +9,16 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.create(comment_params)
-    @post_id = @comment.post_id
-    @post = Post.where(id: @post_id)
+    @post = Post.find(params[:comment][:post_id])
 
-    redirect_to post_path(:post_id)
-
+    redirect_to @post
   end
 
   def edit
   end
 
   def show
+    @user = User.where(id: params[:id])
   end
 
   def update

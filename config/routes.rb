@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
+  get '/search_users', to: 'search#index'
+
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-
-  post '/search_users', to: 'users#search_users'
 
   root 'users#index'
 

@@ -1,10 +1,15 @@
-<h1 class="display-1">If this looks nice, you're using bootstrap.</h1>
+<h1 class="display-1">Welcome to the blog!</h1>
 
 <% @users.each do |u| %>
 	<h4 class="display-4"><%= link_to u.full_name, u %></h4>
-	<% u.posts.each do |p| %>
-		<%= render 'display_post', p: p %>
-	<% end %>
+	<ul>
+		<li>
+			<%= u.posts.count %> posts
+		</li>
+		<li>
+			<%= u.comments.count %> comments
+		</li>
+	</ul>
 <% end %>
 
 
@@ -14,4 +19,3 @@ Date: <%= select_date(Time.now + 10.days) %>
 <br>
 <%= hello %>
 <br>
-<%= heading %>
