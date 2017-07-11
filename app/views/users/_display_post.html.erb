@@ -1,4 +1,9 @@
-<ul>
-	<li><%= link_to p.title, p %></li>
-	<p><%= p.comments.count %> comments</p>
-</ul>
+<% @user_id = post.user_id %>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= post.title %></h4>
+    <h6 class="card-subtitle mb-2 text-muted">Created: <%= time_ago_in_words(post.created_at) %> ago by <%= link_to "#{User.find(@user_id).full_name}", @user %></h6>
+    <p class="card-text"><%= post.content %></p>
+    <%= link_to "#{post.comments.count} comments", post %>
+  </div>
+</div>	

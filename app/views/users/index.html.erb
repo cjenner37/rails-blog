@@ -1,21 +1,11 @@
 <h1 class="display-1">Welcome to the blog!</h1>
 
-<% @users.each do |u| %>
-	<h4 class="display-4"><%= link_to u.full_name, u %></h4>
-	<ul>
-		<li>
-			<%= u.posts.count %> posts
-		</li>
-		<li>
-			<%= u.comments.count %> comments
-		</li>
-	</ul>
+<% @users.each do |user| %>
+	<div class="card">
+	  <div class="card-block">
+	    <h4 class="card-title"><%= link_to "#{user.full_name}", user %></h4>
+	    <p class="card-text"><%= user.posts.count %> posts</p>
+	    <p class="card-text"><%= user.comments.count %> comments</p>
+	  </div>
+	</div>	
 <% end %>
-
-
-Age: <%= distance_of_time_in_words(Time.now - 22.years, Time.now) %>
-<br>
-Date: <%= select_date(Time.now + 10.days) %>
-<br>
-<%= hello %>
-<br>

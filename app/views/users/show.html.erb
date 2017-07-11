@@ -10,19 +10,19 @@
       </div>
       <div class="modal-body">
         <%= form_with model: @post, local: true do |f| %>
-					  <div class="form-group">
-					    <%= f.label :title %>
-					    <%= f.text_field :title %>
-					  </div>
-					  <div class="form-group">
-					    <%= f.label :content %>
-					    <%= f.text_field :content %>
-					  </div>
-					  <%= f.submit %>
-			<% end %>
+			  <div class="form-group">
+			    <%= f.label :title %>
+			    <%= f.text_field :title %>
+			  </div>
+			  <div class="form-group">
+			    <%= f.label :content %>
+			    <%= f.text_field :content %>
+			  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+
+			<%= f.submit "Submit", class: "btn btn-primary" %>
+			<% end %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -34,23 +34,31 @@
 </div>
 
 <div class="post-heading-container">
-	<h4 class="display-4" >Recent Posts</h4>
-	<% if @user == @current_user %>
+	<p><% if @user == @current_user %>
 		<button type="submit" id="new-post-button" class="btn btn-primary">New Post</button>
-	<% end %>
+	<% end %></p>
 </div>
 
 <div class="row">
 	<div class="col-9">
-		<ul>
-			<% @user.posts.each do |post| %>
-				<%= render 'display_post', p: post %>
-				Post Created: <%= time_ago_in_words(post.created_at) %> ago
+
+			<% @posts.each do |post| %>
+				<% @user_id = post.user_id %>
+				<div class="card">
+				  <div class="card-block">
+				    <h4 class="card-title"><%= post.title %></h4>
+				    <h6 class="card-subtitle mb-2 text-muted">Created: <%= time_ago_in_words(post.created_at) %> ago</h6>
+				    <p class="card-text"><%= post.content %></p>
+				    <%= link_to "#{post.comments.count} comments", post %>
+				  </div>
+				</div>				
 			<% end %>	
-		</ul>
+
 	</div>
 	<div class="col-3">
 		<p>Posts: <%= @user.posts.count %></p>
 		<p>Comments: <%= @user.comments.count %></p>
 	</div>
 </div>
+
+
