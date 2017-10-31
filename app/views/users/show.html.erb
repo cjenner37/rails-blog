@@ -33,6 +33,9 @@
 	<h2 class="display-2" ><%= @user.full_name %></h2>
 </div>
 
+<%= image_tag @user.avatar.url(:medium) %>
+
+
 <div class="post-heading-container">
 	<p><% if @user == @current_user %>
 		<button type="submit" id="new-post-button" class="btn btn-primary">New Post</button>

@@ -20,17 +20,17 @@
 $(document).on('turbolinks:load', function () {
 	$('#sign-up-button').click(function () {
 		$('#sign-up-modal').modal('show');
-	})
+	});
 	$('#log-in-button').click(function () {
 		$('#log-in-modal').modal('show');
-	})
+	});
 	$('#new-post-button').click(function () {
 		console.log("clicked new post");
 		$('#new-post-modal').modal('show');
-	})
+	});
 	$('#new-comment-button').click(function () {
 		$('#new-comment-modal').modal('show');
-	})
+	});
 	$('#user-searchbar').keyup(function () {
 		let searchTerm = $(this).val();
 		if (searchTerm != "") {
@@ -38,8 +38,8 @@ $(document).on('turbolinks:load', function () {
 		} else {
 			$('#search-results').empty();
 		}
-	})
-})
+	});
+});
 
 function searchFor(searchTerm) {
 	$.get('/search_users', {name: searchTerm})

@@ -21,7 +21,10 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-					<%= form_with model: @new_user, local: true do |f| %>
+					<%= form_with model: @new_user, html: { multipart: true }, local: true do |f| %>
+					  <div class="forrm-group">
+					  	 <%= f.file_field :avatar %>
+					  </div>
 					  <div class="form-group">
 					    <%= f.label :first_name %>
 					    <%= f.text_field :first_name %>
