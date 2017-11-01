@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
+
 
 $(document).on('turbolinks:load', function () {
 	$('#sign-up-button').click(function () {
