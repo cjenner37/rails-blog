@@ -22,6 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  database: rails-blog-production
-  pool: 5
-  timeout: 5000
+  database: rails_blog_production
+  username: rails_blog
+  password: password
