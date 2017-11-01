@@ -42,5 +42,5 @@ $(document).on('turbolinks:load', function () {
 });
 
 function searchFor(searchTerm) {
-	$.get('/search_users', {name: searchTerm})
-}
+	$.get('/search_users', {name: searchTerm});
+};
