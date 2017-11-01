@@ -20,9 +20,11 @@
 $(document).on('turbolinks:load', function () {
 	$('#sign-up-button').click(function () {
 		$('#sign-up-modal').modal('show');
+		console.log("Clicked");
 	});
 	$('#log-in-button').click(function () {
 		$('#log-in-modal').modal('show');
+		console.log("clicked");
 	});
 	$('#new-post-button').click(function () {
 		console.log("clicked new post");
